@@ -31,13 +31,13 @@ const allCards = [
     title: "IT Support",
     description: "Vedligeholdelse af udstyr og systemer",
     outcome: "Gode jobmuligheder",
-    category: "support",
+    category: "faglig",
   },
   {
     id: "medieværktøjer",
     title: "Medieværktøjer",
     description: "Adobe-pakken, video og 3D-modellering",
-    category: "medier",
+    category: "faglig",
   },
   {
     id: "fællesskaber",
@@ -82,15 +82,18 @@ export default function HomePage() {
   };
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-[#2e026d] to-[#15162c] text-white">
+    <main className="flex min-h-screen flex-col items-center justify-center bg-gray-900 text-white">
       <div className="container flex flex-col items-center justify-center gap-12 px-4 py-16">
-        <h1 className="text-5xl font-extrabold tracking-tight text-white sm:text-[5rem]">
-          Create <span className="text-[hsl(280,100%,70%)]">T3</span> App
-        </h1>
-        <div className="grid grid-cols-1 gap-4 bg-amber-50 sm:grid-cols-2 md:gap-8">
+        <h3 className="mt-10 scroll-m-20 pb-2 text-3xl font-semibold tracking-tight transition-colors first:mt-0">
+          {showSelected
+            ? "Din STU kunne se sådan ud..."
+            : "Vælg det der lydder spændende!"}
+        </h3>
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-1 md:gap-8">
           <CardGrid
             cards={allCards}
             selected={selected}
+            showSelected={showSelected}
             toggleSelection={toggleSelection}
           />
         </div>
@@ -98,7 +101,7 @@ export default function HomePage() {
           variant="outline"
           onClick={() => setShowSelected((prev) => !prev)}
         >
-          Button
+          {!showSelected ? "Dine valg" : "Vis alle"}
         </Button>
       </div>
     </main>

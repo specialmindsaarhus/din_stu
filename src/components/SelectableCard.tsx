@@ -9,15 +9,15 @@ type Props = {
   outcome: string;
   category: string;
   selected: boolean;
+  showSelected: boolean;
   onClick: () => void;
 };
 
 const categoryColors: Record<string, string> = {
-  faglig: "bg-yellow-300",
-  social: "bg-red-300",
-  praktisk: "bg-green-300",
-  support: "bg-blue-300",
-  medier: "bg-purple-300",
+  faglig: "bg-yellow-200",
+  social: " bg-orange-400",
+  personlig: "bg-blue-gray-500",
+  praktik: "bg-blue-300",
 };
 
 export default function SelectableCard({
@@ -26,17 +26,19 @@ export default function SelectableCard({
   outcome,
   category,
   selected,
+  showSelected,
   onClick,
 }: Props) {
   return (
     <Card
       onClick={onClick}
       className={clsx(
-        "cursor-pointer border-2 transition-all duration-200",
+        "cursor-pointer border-0 transition-all duration-200",
         categoryColors[category] || "bg-gray-200",
-        selected
+        selected && !showSelected
           ? "scale-105 ring-4 ring-black"
           : "hover:ring-2 hover:ring-gray-600",
+        !selected && showSelected ? "hidden" : "mb-4",
       )}
     >
       <CardHeader>

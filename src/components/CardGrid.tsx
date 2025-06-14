@@ -1,6 +1,7 @@
 "use client";
 
 import SelectableCard from "./SelectableCard";
+import clsx from "clsx";
 
 type CardData = {
   id: string;
@@ -13,22 +14,33 @@ type CardData = {
 type Props = {
   cards: CardData[];
   selected: string[];
+  showSelected: boolean;
   toggleSelection: (id: string) => void;
 };
 
-export default function CardGrid({ cards, selected, toggleSelection }: Props) {
+export default function CardGrid({
+  cards,
+  selected,
+  showSelected,
+  toggleSelection,
+}: Props) {
   return (
-    <div className="grid grid-cols-1 gap-4 bg-amber-200 p-4 sm:grid-cols-2 md:grid-cols-3">
+    <div className="columns-1 gap-6 p-4 sm:columns-2 md:columns-4">
       {cards.map((card) => (
-        <SelectableCard
+        <div
           key={card.id}
-          title={card.title}
-          description={card.description}
-          outcome={card.outcome}
-          category={card.category}
-          selected={selected.includes(card.id)}
-          onClick={() => toggleSelection(card.id)}
-        />
+          className={clsx(showSelected ? "mb-0" : "mb-6", "break-inside-avoid")}
+        >
+          <SelectableCard
+            title={card.title}
+            description={card.description}
+            outcome={card.outcome}
+            category={card.category}
+            selected={selected.includes(card.id)}
+            showSelected={showSelected}
+            onClick={() => toggleSelection(card.id)}
+          />
+        </div>
       ))}
     </div>
   );
