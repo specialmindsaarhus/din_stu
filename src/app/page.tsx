@@ -46,16 +46,22 @@ const allCards = [
     category: "social",
   },
   {
+    id: "Samtaler",
+    title: "samtaler",
+    description: "Brætspil, eSport og kreative klubber",
+    category: "personlig",
+  },
+  {
     id: "praktisk-teknisk",
     title: "Praktisk Teknisk",
     description: "Webshops, sociale medier og billedbehandling",
-    category: "praktisk",
+    category: "faglig",
   },
   {
     id: "hardware",
     title: "Hardware",
     description: "IT-genbrug og projekter som lamper og højtalere",
-    category: "praktisk",
+    category: "faglig",
   },
   {
     id: "webdesign",
@@ -82,7 +88,7 @@ export default function HomePage() {
   };
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center bg-gray-900 text-white">
+    <main className="flex min-h-screen flex-col items-center justify-center bg-[#202630] text-white">
       <div className="container flex flex-col items-center justify-center gap-12 px-4 py-16">
         <h3 className="mt-10 scroll-m-20 pb-2 text-3xl font-semibold tracking-tight transition-colors first:mt-0">
           {showSelected

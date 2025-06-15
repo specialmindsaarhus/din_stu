@@ -14,9 +14,9 @@ type Props = {
 };
 
 const categoryColors: Record<string, string> = {
-  faglig: "bg-yellow-200",
-  social: " bg-orange-400",
-  personlig: "bg-blue-gray-500",
+  faglig: "bg-[#b9b48b]",
+  social: "bg-[#9c6b5a]",
+  personlig: "bg-[#4e6d82]",
   praktik: "bg-blue-300",
 };
 
@@ -42,13 +42,13 @@ export default function SelectableCard({
       )}
     >
       <CardHeader>
-        <CardTitle>{title}</CardTitle>
+        <CardTitle className="text-2xl">{title}</CardTitle>
       </CardHeader>
       <CardContent>
-        <p className="text-sm">{description}</p>
+        <p className="text-md">{description}</p>
       </CardContent>
       <CardContent>
-        <p className="text-sm">{outcome}</p>
+        <p className="text-md">{outcome}</p>
       </CardContent>
     </Card>
   );
